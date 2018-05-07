@@ -1,0 +1,58 @@
+GeoCluster Analyser
+Author: Syeda Sadia Mahfuz
+
+Problem Description:
+
+Introduction:
+A rectangular grid is overlaid on a piece of a map such that the map is divided up into squares of land. 
+These squares are called Geos and the encompassing rectangle is called a GeoBlock. 
+Users can purchase these Geos. When they are purchased, they become “occupied”.
+Each Geo has an ID within the GeoBlock, starting from 0 in the bottom-left corner, moving left to right along the bottom row,
+then up to the next row, left to right along that and so on until the top right Geo is reached.
+
+A Geo Cluster is defined as being a set of occupied Geos where each one is adjacent to one or more other occupied Geos.
+(i.e. directly above, below, or to the left or right of)
+
+Occupied Geos are specified using an ASCII CSV file format. 
+Each line contains the following fields: 
+	Geo ID, Occupier’s username, Date the Geo was occupied from in YYYY-MM-DD format
+
+Task Description:
+Write a command-line program in Java that takes three parameters:
+􏰀	Width of GeoBlock (in number of Geos)
+􏰀	Height of GeoBlock (in number of Geos)
+􏰀	Name of the CSV file that defines the occupied Geos for that GeoBlock
+It should output the details of the Geos in the cluster with the largest number of Geos in it. 
+The details should include all the information about the Geos that was available in the CSV.
+
+Example:
+java GeoClusterAnalyser 4 7 Files/example.csv
+	The Geos in the largest cluster of occupied Geos for this GeoBlock are:
+		13, Matt, 2010-10-14
+		17, Patrick, 2011-03-10
+		21, Catherine, 2011-02-25
+		22, Michael, 2011-02-25
+where example.csv looks like:
+4, Tom, 2010-10-10
+5, Katie, 2010-08-24
+6, Nicole, 2011-01-09
+11, Mel, 2011-01-01
+13, Matt, 2010-10-14
+15, Mel, 2011-01-01
+17, Patrick, 2011-03-10
+21, Catherine, 2011-02-25
+22, Michael, 2011-02-25
+
+Example2 with same example.csv:
+java GeoClusterAnalyser 7 4 Files/example.csv
+	The Geos in the largest cluster of occupied Geos for this GeoBlock are:
+		4, Tom, 2010-10-10
+		5, Katie, 2010-08-24
+		6, Nicole, 2011-01-09
+		11, Mel, 2011-01-01
+		13, Matt, 2010-10-14
+	
+Notes:
+1) If the CSV file contains invalid data or incomplete information, then the faulty entry is ignored,
+   and the next line is read.
+ 
